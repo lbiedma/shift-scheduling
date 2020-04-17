@@ -2,6 +2,7 @@ from operator import itemgetter
 import pulp
 
 from example_inputs import (
+    periods,
     quarters,
     worker_data,
 )
@@ -93,6 +94,12 @@ def model_problem(
             access_list = [period, (period + 1) % 42, (period + 2) % 42]
             problem += sum(list(itemgetter(*access_list)(workers_data[worker]["worked_periods"]))) <= 3 * (1 - workers_data[worker]["rest_periods"][period])
 
+    # A worker can't work more than 12 hours every 24 hours
+    for period in range(AM_PERIODS):
+        for worker in workers_data.keys():
+            access_list = [period, (period + 1)  % 42, (period + 2) % 42, (period + 3) % 42, (period + 4) % 42, (period + 5) % 42]
+            problem += sum(list(itemgetter(*access_list)(workers_data[worker]["worked_periods"]))) <= 3
+
     # Each worker must have one 48-hour break per week
 
     for worker in workers_data.keys():
@@ -113,8 +120,19 @@ def model_problem(
 
     for worker in workers_data.keys(): 
         workers_data[worker]["schedule"] = [] 
-        for element in workers_data[worker]["worked_periods"]: 
-            if element.varValue == 1: 
-                workers_data[worker]["schedule"].append(element.name)
+        for element in range(len(workers_data[worker]["worked_periods"])):
+            if workers_data[worker]["worked_periods"][element].varValue == 1:
+                workers_data[worker]["schedule"].append(periods[element])
 
     return problem
+
+if __name__ == "__main__":
+    problem = model_problem(quarters=quarters, workers_data=worker_data)
+
+    f = open("./schedule.csv", "w")
+    for worker in worker_data.keys():
+        f.write(worker)
+        for element in worker_data[worker]["schedule"]:
+            f.write(", " + element)
+        f.write("\n")
+    f.close()

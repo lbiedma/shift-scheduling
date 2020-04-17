@@ -1,0 +1,25 @@
+worker0, Mon 0-4, Mon 4-8, Wed 16-20, Wed 20-24, Fri 4-8, Sat 12-16, Sat 16-20, Sun 4-8, Sun 20-24
+worker1, Wed 4-8, Thu 16-20, Fri 16-20
+worker2, Wed 0-4, Sat 12-16
+worker3, Wed 16-20, Fri 16-20, Sat 8-12, Sun 8-12, Sun 16-20
+worker4, Tue 4-8, Tue 16-20, Thu 0-4, Sun 16-20
+worker5, Mon 0-4, Tue 16-20, Wed 4-8, Wed 20-24, Thu 12-16, Thu 16-20, Fri 4-8, Fri 12-16, Sun 16-20
+worker6, Thu 0-4, Thu 4-8, Fri 16-20
+worker7, Fri 20-24
+worker8, Mon 16-20, Tue 0-4, Tue 16-20, Wed 4-8, Thu 0-4, Thu 16-20, Sun 16-20
+worker9, Tue 0-4, Tue 16-20, Wed 4-8, Thu 0-4, Thu 4-8, Sun 12-16
+worker10, Mon 4-8, Tue 0-4, Tue 4-8, Thu 12-16, Fri 4-8, Fri 16-20, Sat 12-16, Sat 16-20
+worker11, Wed 4-8, Thu 12-16, Thu 16-20, Sat 4-8, Sun 20-24
+worker12, Mon 16-20, Mon 20-24, Tue 0-4, Tue 16-20, Wed 16-20, Thu 0-4, Thu 12-16, Thu 16-20, Sun 4-8, Sun 8-12, Sun 16-20
+worker13, Tue 16-20, Wed 16-20, Thu 16-20, Sun 4-8
+worker14, Mon 0-4, Mon 4-8, Mon 16-20, Tue 16-20, Wed 4-8, Wed 8-12, Thu 0-4, Thu 4-8, Thu 12-16, Sat 16-20, Sun 4-8
+worker15, Mon 0-4, Mon 16-20, Mon 20-24, Tue 4-8, Wed 4-8, Wed 16-20, Thu 12-16, Thu 16-20, Sun 4-8, Sun 8-12
+worker16, Mon 16-20, Tue 16-20, Wed 4-8, Wed 16-20, Sat 16-20, Sun 4-8, Sun 16-20
+worker17, Mon 16-20, Wed 4-8, Thu 0-4, Sat 4-8
+worker18, Mon 4-8, Mon 12-16, Tue 16-20, Wed 4-8, Wed 8-12, Wed 16-20, Sat 0-4, Sat 4-8, Sun 4-8
+worker19, Mon 16-20, Tue 0-4, Tue 4-8, Tue 16-20, Fri 4-8, Sat 4-8, Sat 12-16, Sat 16-20, Sun 16-20, Sun 20-24
+worker20, Mon 8-12, Wed 12-16, Wed 16-20, Thu 0-4, Thu 20-24, Fri 8-12, Sat 20-24, Sun 0-4, Sun 16-20
+worker21, Tue 12-16, Sat 12-16
+worker22, Mon 20-24, Tue 0-4, Tue 8-12, Thu 8-12, Thu 16-20
+worker23, Tue 16-20, Wed 4-8, Wed 20-24, Thu 4-8
+worker24, Tue 20-24, Wed 4-8, Wed 16-20, Fri 0-4, Sun 16-20
