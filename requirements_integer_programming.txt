@@ -1,0 +1,54 @@
+INPUT #1: NUMBER OF EMPLOYEES NEEDED PER QUARTER OF DAY:
+=DayOfWeek
+=Quarter of the day
+=Employees Needed For each of the quarter of the day    
+INPUT #2: EMPLOYEES AVAILABILITY AND SHIFTS RESTRICTIONS
+Employee ID
+from what time to what time he is an available to shift
+Skill Level(From 0 to 100) a skill level <= 25 can't be Alone
+----------------------------------------------------------
+Others Global Restrictions
+Minimum number of hours he requires if work=2H
+maximum number of hours he can work during the day=12H
+Maximum consecutive hour of work without break=6H
+Minimum break duration =30 Min
+12H rest between the end of the previous day's shift and the beginning of the next day's shift.
+----------------------------------------------------------------------------------------
+We want the program to give us the scheduling, AND satisfying all the restrictions
+OUTPUT: CSV FILE Telling us for each employee what should be the shifts, while satisfying
+the required number of employees + the Employee shift requirements.
+
+----------------------------------------------------------------------------------------
+Constraints per Day
+
+An employee must work only in his or her available hours.
+Minimum duration if work : 2H
+Maximum daily duration: 10 hours
+Minimum break of 45 minutes every 6 hours
+Daily hourly amplitude: 13 hours
+------------------------------------------------------------------------------------------
+Weekly Constraints
+
+Rest time between 2 days: 12 hours
+Weekly rest: 2 consecutive days
+Absolute maximum hourly duration: 48 hours
+Each employee must plan his or her quota of hours.
+------------------------------------------------------------------------------------------
+I
+for each week you have 7 data entry like shift_requirements = [8,5,8,10,10,5,12,12,12,14,10,12,
+12,5,14,6,5,5,5,5,5,5,10,6,8,10,10,12,10,15,15,16,16,16,14,10,12,5,5,6,5,5,5,3,5,5,5,5];
+
+for the disponibility of each staff member for each day
+
+The python script should return the following data : "StafFWorkerA": {
+"Monday": [24-31,39-44],
+"ETC": [24-31,39-44],
+},
+"StafFWorkerB": {
+
+-------------------------------------------------------------------------------------------
+
+Hi, I have some questions:
+- Why are they 48 elements in the list of shift_requirements? That is not divisible by 7, which is the amount of days in a week.
+- Why does the output have a 24-31 and a 39-44 for a day? Days have 24 hours. What does that mean?
+- The place is open 24 hours? You say you need availability for quarter of the day but then you told me the place is open from 8 to 21.
