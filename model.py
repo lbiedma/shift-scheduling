@@ -1,9 +1,10 @@
 from operator import itemgetter
+import pandas
 import pulp
 
 from example_inputs import (
     periods,
-    quarters,
+#    quarters,
     worker_data,
 )
 
@@ -22,13 +23,25 @@ AM_QUARTERS = 28
 
 # quarters = [5, 4, 10, .... , 8, 9, 12] Amount of workers needed for each quarter of day. Length 28
 
-def model_problem(
-    workers_data, quarters,
-):
+def model_problem():
+
+    workerdf = pandas.read_excel("workers.xlsx", header=0) 
+    workers_data = {}
+    for iteration in workerdf.iterrows(): 
+        row = iteration[1] 
+        name = row[0] 
+        workers_data[name] = {} 
+        workers_data[name]["skill_level"] = row[1] 
+        workers_data[name]["period_avail"] = [] 
+        for day in range(7): 
+            for period in range(6): 
+                workers_data[name]["period_avail"].append(
+                    int((period*4 >= row[2 + day * 2]) and ((period+1)*4 <= row[2 + day*2 + 1]))
+                )
+
+    quarters = pandas.read_excel("./quarter.xlsx", header=0).loc[0].tolist()
 
     problem = pulp.LpProblem("ScheduleWorkers", pulp.LpMinimize)
-
-    workers = len(workers_data)
 
     workerid = 0
     for worker in workers_data.keys():
@@ -124,15 +137,15 @@ def model_problem(
             if workers_data[worker]["worked_periods"][element].varValue == 1:
                 workers_data[worker]["schedule"].append(periods[element])
 
-    return problem
+    return problem, workers_data
 
 if __name__ == "__main__":
-    problem = model_problem(quarters=quarters, workers_data=worker_data)
+    problem, workers_data = model_problem()
 
     f = open("./schedule.csv", "w")
-    for worker in worker_data.keys():
+    for worker in workers_data.keys():
         f.write(worker)
-        for element in worker_data[worker]["schedule"]:
+        for element in workers_data[worker]["schedule"]:
             f.write(", " + element)
         f.write("\n")
     f.close()

@@ -1,2 +1,3 @@
+pandas
 pulp
-ipython
+xlrd
