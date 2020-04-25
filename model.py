@@ -4,8 +4,6 @@ import pulp
 
 from example_inputs import (
     periods,
-#    quarters,
-    worker_data,
 )
 
 AM_PERIODS = 42
